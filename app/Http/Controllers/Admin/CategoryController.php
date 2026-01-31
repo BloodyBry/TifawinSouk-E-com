@@ -37,8 +37,6 @@ class CategoryController extends Controller
         ]);
 
         $slug = Str::slug($validated['name']);
-
-        // rendre slug unique
         $base = $slug;
         $i = 1;
         while (Category::where('slug', $slug)->exists()) {
