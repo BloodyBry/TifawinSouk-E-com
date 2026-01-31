@@ -15,7 +15,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $product = Product::with('category')->latest()->paginate(10);
+        $products = Product::with('category')->latest()->paginate(10);
         return view('admin.products.index', compact('products'));
     }
 
@@ -73,7 +73,7 @@ class ProductController extends Controller
     public function edit(Product $product)
     {
         $categories = Category::orderBy('name')->get();
-        return view('admin.products.edit', compact('products', 'categories'));
+        return view('admin.products.edit', compact('product', 'categories'));
     }
 
     /**
